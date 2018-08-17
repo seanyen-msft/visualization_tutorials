@@ -31,7 +31,12 @@
 #include <ros/ros.h>
 #include <visualization_msgs/Marker.h>
 
+#ifdef WIN32
+#define _USE_MATH_DEFINES
+#include <math.h>
+#else
 #include <cmath>
+#endif
 
 int main( int argc, char** argv )
 {
@@ -49,7 +54,7 @@ int main( int argc, char** argv )
     points.header.frame_id = line_strip.header.frame_id = line_list.header.frame_id = "/my_frame";
     points.header.stamp = line_strip.header.stamp = line_list.header.stamp = ros::Time::now();
     points.ns = line_strip.ns = line_list.ns = "points_and_lines";
-    points.action = line_strip.action = line_list.action = visualization_msgs::Marker::ADD;
+    points.action = line_strip.action = line_list.action = visualization_msgs::Marker::MK_ADD;
     points.pose.orientation.w = line_strip.pose.orientation.w = line_list.pose.orientation.w = 1.0;
 // %EndTag(MARKER_INIT)%
 
