@@ -7,8 +7,12 @@ cmake_minimum_required(VERSION 2.8.3)
 project(rviz_plugin_tutorials)
 find_package(catkin REQUIRED COMPONENTS rviz)
 catkin_package()
+
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(YAMLCPP REQUIRED yaml-cpp)
+
 include_directories(${catkin_INCLUDE_DIRS})
-link_directories(${catkin_LIBRARY_DIRS})
+link_directories(${catkin_LIBRARY_DIRS} ${YAMLCPP_LIBRARY_DIRS})
 
 ## This setting causes Qt's "MOC" generation to happen automatically.
 set(CMAKE_AUTOMOC ON)
@@ -58,7 +62,7 @@ add_library(${PROJECT_NAME} ${SRC_FILES})
 ## library and names the actual file something like
 ## "librviz_plugin_tutorials.so", or whatever is appropriate for your
 ## particular OS.
-target_link_libraries(${PROJECT_NAME} ${QT_LIBRARIES} ${catkin_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} ${QT_LIBRARIES} ${catkin_LIBRARIES} ${YAMLCPP_LIBRARIES} assimp-vc140-mt)
 ## END_TUTORIAL
 
 ## Install rules
