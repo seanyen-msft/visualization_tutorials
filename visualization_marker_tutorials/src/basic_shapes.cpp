@@ -70,7 +70,7 @@ int main( int argc, char** argv )
 
     // Set the marker action.  Options are ADD, DELETE, and new in ROS Indigo: 3 (DELETEALL)
 // %Tag(ACTION)%
-    marker.action = visualization_msgs::Marker::MK_ADD;
+    marker.action = visualization_msgs::Marker::ADD;
 // %EndTag(ACTION)%
 
     // Set the pose of the marker.  This is a full 6DOF pose relative to the frame/time specified in the header
