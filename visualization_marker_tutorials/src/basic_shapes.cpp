@@ -112,11 +112,7 @@ int main( int argc, char** argv )
         return 0;
       }
       ROS_WARN_ONCE("Please create a subscriber to the marker");
-#ifdef WIN32
-      Sleep(1000);
-#else
-      sleep(1);
-#endif
+      ros::Duration(1.0).sleep();
     }
     marker_pub.publish(marker);
 // %EndTag(PUBLISH)%
