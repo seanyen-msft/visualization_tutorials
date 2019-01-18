@@ -7,12 +7,8 @@ cmake_minimum_required(VERSION 2.8.3)
 project(librviz_tutorial)
 find_package(catkin REQUIRED COMPONENTS rviz roscpp)
 catkin_package()
-
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(YAMLCPP REQUIRED yaml-cpp)
-
 include_directories(${catkin_INCLUDE_DIRS})
-link_directories(${catkin_LIBRARY_DIRS} ${YAMLCPP_LIBRARY_DIRS})
+link_directories(${catkin_LIBRARY_DIRS})
 
 ## This setting causes Qt's "MOC" generation to happen automatically.
 set(CMAKE_AUTOMOC ON)
@@ -50,7 +46,7 @@ add_executable(myviz ${SRC_FILES})
 ## the ``find_package(Qt4 ...)`` line above, or by the
 ## ``set(QT_LIBRARIES Qt5::Widgets)``, and with whatever libraries
 ## catkin has included.
-target_link_libraries(myviz ${QT_LIBRARIES} ${catkin_LIBRARIES} ${YAMLCPP_LIBRARIES} assimp-vc140-mt)
+target_link_libraries(myviz ${QT_LIBRARIES} ${catkin_LIBRARIES})
 ## END_TUTORIAL
 
 ## Install

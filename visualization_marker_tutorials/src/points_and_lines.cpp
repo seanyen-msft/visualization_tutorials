@@ -31,12 +31,7 @@
 #include <ros/ros.h>
 #include <visualization_msgs/Marker.h>
 
-#ifdef WIN32
-#define _USE_MATH_DEFINES
-#include <math.h>
-#else
 #include <cmath>
-#endif
 
 int main( int argc, char** argv )
 {
